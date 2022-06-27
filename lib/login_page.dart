@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:safevet/recover_page.dart';
 import 'package:safevet/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -59,6 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: Padding(
                     padding: const EdgeInsets.only(left: 5.0),
                     child: TextField(
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.alternate_email),
@@ -99,6 +101,32 @@ class _LoginPageState extends State<LoginPage> {
                 height: 10,
               ),
 
+              //forgot password
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 25),
+                    child: TextButton(
+                        child: Text(
+                          "¿Olvidaste tu contraseña?",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, color: Colors.blue),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RegisterPage()));
+                        }),
+                  ),
+                ],
+              ),
+
+              SizedBox(
+                height: 10,
+              ),
+
               //boton login
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -118,7 +146,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
               SizedBox(
-                height: 25,
+                height: 10,
               ),
 
               //registro
@@ -139,7 +167,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => RegisterPage()));
+                                builder: (context) => RecoverPage()));
                       }),
                 ],
               )
