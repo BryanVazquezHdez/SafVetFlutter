@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^3.3.14
   google_fonts:
+  flutter_linkify: ^5.0.2
+  url_launcher: 
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +61,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
+    - assets/images/
     - assets/images/SafeVet_Logo.png
 
   # To add assets to your application, add an assets section, like this:
