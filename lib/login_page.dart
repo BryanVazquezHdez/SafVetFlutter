@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:safevet/profile_page.dart';
 import 'package:safevet/recover_page.dart';
 import 'package:safevet/register_page.dart';
 
@@ -136,12 +138,22 @@ class _LoginPageState extends State<LoginPage> {
                       color: Color.fromARGB(255, 36, 57, 178),
                       borderRadius: BorderRadius.circular(12)),
                   child: Center(
-                    child: Text("Sign in",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        )),
+                    child: SizedBox(
+                      height: 50,
+                      child: CupertinoButton(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Text(
+                            "Login",
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ProfilePage()));
+                          },
+                          color: Color.fromARGB(255, 36, 57, 178)),
+                    ),
                   ),
                 ),
               ),
