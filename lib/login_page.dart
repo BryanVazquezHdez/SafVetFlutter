@@ -136,12 +136,13 @@ class _LoginPageState extends State<LoginPage> {
                       color: Color.fromARGB(255, 36, 57, 178),
                       borderRadius: BorderRadius.circular(12)),
                   child: Center(
-                      child: Text("Sign in",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ))),
+                    child: Text("Sign in",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        )),
+                  ),
                 ),
               ),
 
