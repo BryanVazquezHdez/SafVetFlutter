@@ -16,7 +16,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Color.fromARGB(255, 32, 26, 48),
       body: Column(
         children: [
           SafeArea(
@@ -25,9 +25,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 20, top: 20),
                   child: IconButton(
-                    icon: Icon(
-                      Icons.arrow_back_ios_new_rounded,
-                    ),
+                    icon: Icon(Icons.arrow_back_ios_new_rounded,
+                        color: Color.fromARGB(255, 13, 245, 227)),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -49,7 +48,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 SizedBox(
                   height: 25,
                 ),
-                Text("¡Regístrate!", style: GoogleFonts.roboto(fontSize: 36)),
+                Text(
+                  "¡Regístrate!",
+                  style: GoogleFonts.roboto(fontSize: 36, color: Colors.white),
+                ),
                 SizedBox(
                   height: 50,
                 ),
@@ -59,9 +61,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.grey[200],
+                        color: Color.fromARGB(255, 85, 73, 115),
                         border: Border.all(
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 85, 73, 115),
                         ),
                         borderRadius: BorderRadius.circular(12)),
                     child: Padding(
@@ -69,6 +71,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: TextField(
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Color.fromARGB(255, 85, 73, 115),
                             border: InputBorder.none,
                             prefixIcon: Icon(Icons.alternate_email),
                             hintText: 'Introduce tu correo electrónico'),
@@ -86,9 +90,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.grey[200],
+                        color: Color.fromARGB(255, 85, 73, 115),
                         border: Border.all(
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 85, 73, 115),
                         ),
                         borderRadius: BorderRadius.circular(12)),
                     child: Padding(
@@ -96,6 +100,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: TextField(
                         obscureText: true,
                         decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Color.fromARGB(255, 85, 73, 115),
                             border: InputBorder.none,
                             prefixIcon: Icon(Icons.password),
                             hintText: 'Introduce tu contraseña'),
@@ -112,9 +118,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.grey[200],
+                        color: Color.fromARGB(255, 85, 73, 115),
                         border: Border.all(
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 85, 73, 115),
                         ),
                         borderRadius: BorderRadius.circular(12)),
                     child: Padding(
@@ -122,6 +128,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: TextField(
                         obscureText: true,
                         decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Color.fromARGB(255, 85, 73, 115),
                             border: InputBorder.none,
                             prefixIcon: Icon(Icons.password),
                             hintText: 'Repite tu contraseña'),
@@ -138,9 +146,9 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Container(
                     decoration: BoxDecoration(
-                        color: Colors.grey[200],
+                        color: Color.fromARGB(255, 85, 73, 115),
                         border: Border.all(
-                          color: Colors.white,
+                          color: Color.fromARGB(255, 85, 73, 115),
                         ),
                         borderRadius: BorderRadius.circular(12)),
                     child: Padding(
@@ -149,6 +157,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         keyboardType: TextInputType.number,
                         obscureText: false,
                         decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Color.fromARGB(255, 85, 73, 115),
                             border: InputBorder.none,
                             prefixIcon: Icon(Icons.phone),
                             hintText: 'Introduce tu número celular'),
@@ -167,9 +177,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Al registrarte, estás de acuerdo con los terminos \nde uso y condición",
-                        textAlign: TextAlign.center,
-                      ),
+                          "Al registrarte, estás de acuerdo con los terminos \nde uso y condición",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(color: Colors.white)),
                     ],
                   ),
                 ),
@@ -184,12 +194,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: Container(
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 36, 57, 178),
+                        color: Color.fromARGB(255, 13, 245, 227),
                         borderRadius: BorderRadius.circular(12)),
                     child: Center(
                         child: Text("Continuar",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Color.fromARGB(255, 32, 26, 48),
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                             ))),

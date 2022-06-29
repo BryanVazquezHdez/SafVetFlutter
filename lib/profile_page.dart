@@ -96,7 +96,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ));
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: Color.fromARGB(255, 32, 26, 48),
       body: Column(
         children: [
           Center(
@@ -151,10 +151,11 @@ class _ProfilePageState extends State<ProfilePage> {
                     borderRadius: BorderRadius.circular(50),
                     child: Text(
                       "Agendar cita médica",
-                      style: TextStyle(fontSize: 15),
+                      style: TextStyle(
+                          fontSize: 15, color: Color.fromARGB(255, 32, 26, 48)),
                     ),
                     onPressed: () {},
-                    color: Color.fromARGB(255, 36, 57, 178)),
+                    color: Color.fromARGB(255, 13, 245, 227)),
                 SizedBox(
                   height: 20,
                 ),

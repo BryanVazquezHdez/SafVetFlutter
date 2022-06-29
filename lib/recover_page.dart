@@ -15,7 +15,7 @@ class _RecoverPageState extends State<RecoverPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Color.fromARGB(255, 32, 26, 48),
       body: Column(
         children: [
           SafeArea(
@@ -24,9 +24,8 @@ class _RecoverPageState extends State<RecoverPage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 20, top: 20),
                   child: IconButton(
-                    icon: Icon(
-                      Icons.arrow_back_ios_new_rounded,
-                    ),
+                    icon: Icon(Icons.arrow_back_ios_new_rounded,
+                        color: Color.fromARGB(255, 13, 245, 227)),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -44,6 +43,7 @@ class _RecoverPageState extends State<RecoverPage> {
                 "assets/images/cat.png",
                 height: 150,
                 width: 150,
+                color: Colors.white,
               ),
               SizedBox(
                 height: 25,
@@ -52,14 +52,14 @@ class _RecoverPageState extends State<RecoverPage> {
                 padding: const EdgeInsets.only(left: 25, right: 25),
                 child: Text(
                   "¿Olvidaste tu contraseña?",
-                  style: GoogleFonts.roboto(fontSize: 33),
+                  style: GoogleFonts.roboto(fontSize: 33, color: Colors.white),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 25, right: 25, top: 15),
                 child: Text(
                   "No te preocupes, suele pasar. Por favor, introduce tu correo asociado a tu cuenta. ",
-                  style: GoogleFonts.roboto(fontSize: 14),
+                  style: GoogleFonts.roboto(fontSize: 14, color: Colors.white),
                 ),
               ),
 
@@ -72,9 +72,9 @@ class _RecoverPageState extends State<RecoverPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.grey[200],
+                      color: Color.fromARGB(255, 85, 73, 115),
                       border: Border.all(
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 85, 73, 115),
                       ),
                       borderRadius: BorderRadius.circular(12)),
                   child: Padding(
@@ -82,6 +82,8 @@ class _RecoverPageState extends State<RecoverPage> {
                     child: TextField(
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 85, 73, 115),
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.alternate_email),
                           hintText: 'Introduce tu correo electrónico'),
@@ -100,12 +102,12 @@ class _RecoverPageState extends State<RecoverPage> {
                 child: Container(
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 36, 57, 178),
+                      color: Color.fromARGB(255, 13, 245, 227),
                       borderRadius: BorderRadius.circular(12)),
                   child: Center(
                       child: Text("Enviar",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Color.fromARGB(255, 32, 26, 48),
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                           ))),

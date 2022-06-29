@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Color.fromARGB(255, 32, 26, 48),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -34,16 +34,14 @@ class _LoginPageState extends State<LoginPage> {
               // Hola de nuevo!!
               Text(
                 "¡Hola de nuevo! 🐶",
-                style: GoogleFonts.roboto(fontSize: 36),
+                style: GoogleFonts.roboto(fontSize: 36, color: Colors.white),
               ),
               SizedBox(
                 height: 10,
               ),
               Text(
                 "Bienvenido de vuelta 🤗",
-                style: TextStyle(
-                  fontSize: 20,
-                ),
+                style: TextStyle(fontSize: 20, color: Colors.white),
               ),
               SizedBox(
                 height: 50,
@@ -54,18 +52,24 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.grey[200],
+                      color: Color.fromARGB(255, 85, 73, 115),
                       border: Border.all(
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 85, 73, 115),
                       ),
                       borderRadius: BorderRadius.circular(12)),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 5.0),
                     child: TextField(
+                      cursorColor: Color.fromARGB(255, 13, 245, 227),
+                      style: TextStyle(color: Colors.white),
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 85, 73, 115),
                           border: InputBorder.none,
-                          prefixIcon: Icon(Icons.alternate_email),
+                          prefixIcon: Icon(
+                            Icons.alternate_email,
+                          ),
                           hintText: 'Introduce tu correo electrónico'),
                     ),
                   ),
@@ -73,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
 
               SizedBox(
-                height: 10,
+                height: 15,
               ),
 
               //Textfield contraseña
@@ -81,16 +85,20 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.grey[200],
+                      color: Color.fromARGB(255, 85, 73, 115),
                       border: Border.all(
-                        color: Colors.white,
+                        color: Color.fromARGB(255, 85, 73, 115),
                       ),
                       borderRadius: BorderRadius.circular(12)),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 5.0),
                     child: TextField(
+                      cursorColor: Color.fromARGB(255, 13, 245, 227),
+                      style: TextStyle(color: Colors.white),
                       obscureText: true,
                       decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Color.fromARGB(255, 85, 73, 115),
                           border: InputBorder.none,
                           prefixIcon: Icon(Icons.password),
                           hintText: 'Introduce tu contraseña'),
@@ -105,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
 
               //forgot password
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(right: 25),
@@ -113,13 +121,14 @@ class _LoginPageState extends State<LoginPage> {
                         child: Text(
                           "¿Olvidaste tu contraseña?",
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, color: Colors.blue),
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 13, 245, 227)),
                         ),
                         onPressed: () {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => RegisterPage()));
+                                  builder: (context) => RecoverPage()));
                         }),
                   ),
                 ],
@@ -134,17 +143,17 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Container(
                   padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 36, 57, 178),
-                      borderRadius: BorderRadius.circular(12)),
                   child: Center(
                     child: SizedBox(
-                      height: 50,
+                      height: 70,
+                      width: 250,
                       child: CupertinoButton(
                           borderRadius: BorderRadius.circular(50),
                           child: Text(
                             "Login",
-                            style: TextStyle(fontSize: 20),
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Color.fromARGB(255, 32, 26, 48)),
                           ),
                           onPressed: () {
                             Navigator.push(
@@ -152,7 +161,7 @@ class _LoginPageState extends State<LoginPage> {
                                 MaterialPageRoute(
                                     builder: (context) => ProfilePage()));
                           },
-                          color: Color.fromARGB(255, 36, 57, 178)),
+                          color: Color.fromARGB(255, 13, 245, 227)),
                     ),
                   ),
                 ),
@@ -168,19 +177,22 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Text(
                     "¿No estás registrado?",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 127, 126, 129)),
                   ),
                   TextButton(
                       child: Text(
                         "¡Regístrate aquí!",
                         style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.blue),
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 13, 245, 227)),
                       ),
                       onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => RecoverPage()));
+                                builder: (context) => RegisterPage()));
                       }),
                 ],
               )
