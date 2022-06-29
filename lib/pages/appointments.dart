@@ -3,14 +3,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:safevet/profile_page.dart';
+import 'package:safevet/pages/home_page.dart';
 
-class PetPage extends StatelessWidget {
-  final CardItem item;
+class AppointPage extends StatelessWidget {
+  final CardItem2 item2;
 
-  const PetPage({
+  const AppointPage({
     Key? key,
-    required this.item,
+    required this.item2,
   }) : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class PetPage extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         backgroundColor: Color.fromARGB(255, 32, 26, 48),
         appBar: CupertinoNavigationBar(
-          middle: Text("Datos de " + item.title,
+          middle: Text("Cita de " + item2.title,
               style: TextStyle(
                 color: Colors.white,
               )),
@@ -32,7 +32,7 @@ class PetPage extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(70),
                 child: Image.network(
-                  item.urlImage,
+                  item2.urlImage,
                   fit: BoxFit.cover,
                   width: 100,
                   height: 100,
@@ -43,19 +43,34 @@ class PetPage extends StatelessWidget {
               height: 15,
             ),
             Text(
-              item.title,
+              item2.title,
               style: GoogleFonts.poppins(
                   fontSize: 25,
                   color: Color.fromARGB(255, 255, 255, 255),
                   fontWeight: FontWeight.bold),
             ),
             Text(
-              item.subtitle,
+              item2.subtitle,
               style: GoogleFonts.poppins(
                   fontSize: 16,
                   color: Color.fromARGB(255, 255, 255, 255),
                   fontWeight: FontWeight.normal),
-            )
+            ),
+            Text(
+              'Fecha de cita: ' + item2.date,
+              style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontWeight: FontWeight.normal),
+            ),
+            Text(
+              'Hora de cita: ' + item2.hour,
+              style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontWeight: FontWeight.normal),
+            ),
+            Text("Recomendaciones:")
           ]),
         ),
       );

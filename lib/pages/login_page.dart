@@ -3,9 +3,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:safevet/profile_page.dart';
-import 'package:safevet/recover_page.dart';
-import 'package:safevet/register_page.dart';
+import 'package:safevet/pages/profile_page.dart';
+import 'package:safevet/pages/recover_page.dart';
+import 'package:safevet/pages/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);

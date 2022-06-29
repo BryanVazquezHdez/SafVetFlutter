@@ -2,12 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:safevet/login_page.dart';
-import 'package:safevet/home_page.dart';
-import 'package:safevet/profile_page.dart';
+
+import 'package:safevet/pages/home_page.dart';
+import 'package:safevet/pages/login_page.dart';
+import 'package:safevet/pages/profile_page.dart';
+
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:safevet/recover_page.dart';
-import 'package:safevet/register_page.dart';
+import 'package:safevet/pages/register_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +27,7 @@ class _MyAppState extends State<MyApp> {
   int _paginaActual = 0;
 
   List<Widget> _paginas = [
-    RecoverPage(),
+    HomePage(),
     RegisterPage(),
     LoginPage(),
     ProfilePage()
