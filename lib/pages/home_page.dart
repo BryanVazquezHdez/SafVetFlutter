@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:safevet/pages/appointments.dart';
 
@@ -28,6 +30,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final isDialOpen = ValueNotifier(false);
   List<CardItem2> items = [
     CardItem2(
       title: 'Snoopy',
@@ -96,55 +99,106 @@ class _HomePageState extends State<HomePage> {
                 )
               ],
             ));
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Color.fromARGB(255, 32, 26, 48),
-      body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(25.0),
-        child: Container(
-          child: Column(children: [
-            Row(
-              children: [
-                Text(
-                  "¡Hola!\nBienvenido de vuelta 🙋🏻‍♂️",
-                  style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              children: [
-                Text("Aquí tienes un resumen: ",
-                    textAlign: TextAlign.end,
-                    style: GoogleFonts.poppins(
-                      color: Colors.white,
-                      fontSize: 18,
-                    )),
-              ],
-            ),
-            Container(
-              height: 256,
-              child: ListView.separated(
-                padding: EdgeInsets.all(16),
-                scrollDirection: Axis.horizontal,
-                itemCount: 3,
-                separatorBuilder: (context, _) => SizedBox(
-                  width: 12,
-                ),
-                itemBuilder: (context, index) => buildCard(item: items[index]),
-              ),
-            ),
-
-            //CITAS
-          ]),
+    return WillPopScope(
+      onWillPop: () async {
+        if (isDialOpen.value) {
+          isDialOpen.value = false;
+          return false;
+        } else {
+          return true;
+        }
+      },
+      child: Scaffold(
+        floatingActionButton: SpeedDial(
+          animatedIcon: AnimatedIcons.menu_close,
+          backgroundColor: Colors.black,
+          overlayOpacity: 0.4,
+          overlayColor: Colors.black,
+          spacing: 12,
+          spaceBetweenChildren: 12,
+          closeManually: false,
+          openCloseDial: isDialOpen,
+          children: [
+            SpeedDialChild(
+                child: Icon(Icons.medical_services_outlined),
+                label: "Agendar cita médica",
+                backgroundColor: Colors.white,
+                onTap: () => showToast('Selected medical appoint')),
+            SpeedDialChild(
+                child: Icon(Icons.shower),
+                label: "Agendar cita estética",
+                backgroundColor: Colors.white,
+                onTap: () => showToast('Selected stetic appoint')),
+          ],
         ),
-      )),
+        resizeToAvoidBottomInset: false,
+        backgroundColor: Color.fromARGB(255, 32, 26, 48),
+        body: SafeArea(
+            child: Padding(
+          padding: const EdgeInsets.all(25.0),
+          child: Container(
+            child: Column(children: [
+              Row(
+                children: [
+                  Text(
+                    "¡Hola!\nBienvenido de vuelta 🙋🏻‍♂️",
+                    style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                children: [
+                  Text("Aquí tienes un resumen",
+                      textAlign: TextAlign.end,
+                      style: GoogleFonts.poppins(
+                        color: Colors.white,
+                        fontSize: 18,
+                      )),
+                ],
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Row(
+                children: [
+                  Text("Citas 🗓",
+                      style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold)),
+                ],
+              ),
+              Container(
+                height: 256,
+                child: ListView.separated(
+                  padding: EdgeInsets.only(top: 20),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 3,
+                  separatorBuilder: (context, _) => SizedBox(
+                    width: 12,
+                  ),
+                  itemBuilder: (context, index) =>
+                      buildCard(item: items[index]),
+                ),
+              ),
+
+              //CITAS
+            ]),
+          ),
+        )),
+      ),
     );
   }
+}
+
+Future showToast(String message) async {
+  await Fluttertoast.cancel();
+
+  Fluttertoast.showToast(msg: message, fontSize: 18);
 }
