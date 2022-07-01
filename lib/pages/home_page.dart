@@ -144,92 +144,97 @@ class _HomePageState extends State<HomePage> {
         body: SafeArea(
             child: Padding(
           padding: const EdgeInsets.all(25.0),
-          child: Container(
-            child: Column(children: [
-              Row(
-                children: [
-                  Text(
-                    "¡Hola!\nBienvenido de vuelta 🙋🏻‍♂️",
-                    style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                children: [
-                  Text("Aquí tienes un resumen",
-                      textAlign: TextAlign.end,
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 18,
-                      )),
-                ],
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Row(
-                children: [
-                  Text("Citas 🗓",
-                      style: GoogleFonts.poppins(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold)),
-                ],
-              ),
+          child: ListView(
+            children: [
               Container(
-                height: 256,
-                child: ListView.separated(
-                  padding: EdgeInsets.only(top: 20),
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 3,
-                  separatorBuilder: (context, _) => SizedBox(
-                    width: 12,
+                child: Column(children: [
+                  Row(
+                    children: [
+                      Text(
+                        "¡Hola!\nBienvenido de vuelta 🙋🏻‍♂️",
+                        style: GoogleFonts.poppins(
+                            color: Colors.white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
-                  itemBuilder: (context, index) =>
-                      buildCard(item: items[index]),
-                ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Divider(
-                color: Colors.white,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  Text("Recomendaciones ✍🏻",
-                      style: GoogleFonts.poppins(
-                          color: Colors.white,
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold)),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CupertinoButton(
-                  borderRadius: BorderRadius.circular(50),
-                  child: Text(
-                    "¡Has clic para más recomendaciones!",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 16, color: Color.fromARGB(255, 32, 26, 48)),
+                  SizedBox(
+                    height: 15,
                   ),
-                  onPressed: () {
-                    launchUrlString('https://www.cuidandotumascota.com/');
-                  },
-                  color: Color.fromARGB(255, 13, 245, 227)),
-              //CITAS
-            ]),
+                  Row(
+                    children: [
+                      Text("Aquí tienes un resumen",
+                          textAlign: TextAlign.end,
+                          style: GoogleFonts.poppins(
+                            color: Colors.white,
+                            fontSize: 18,
+                          )),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Row(
+                    children: [
+                      Text("Citas 🗓",
+                          style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                  Container(
+                    height: 256,
+                    child: ListView.separated(
+                      padding: EdgeInsets.only(top: 20),
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 3,
+                      separatorBuilder: (context, _) => SizedBox(
+                        width: 12,
+                      ),
+                      itemBuilder: (context, index) =>
+                          buildCard(item: items[index]),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Divider(
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    children: [
+                      Text("Recomendaciones ✍🏻",
+                          style: GoogleFonts.poppins(
+                              color: Colors.white,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold)),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  CupertinoButton(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Text(
+                        "¡Has clic para más recomendaciones!",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Color.fromARGB(255, 32, 26, 48)),
+                      ),
+                      onPressed: () {
+                        launchUrlString('https://www.cuidandotumascota.com/');
+                      },
+                      color: Color.fromARGB(255, 13, 245, 227)),
+                  //CITAS
+                ]),
+              ),
+            ],
           ),
         )),
       ),

@@ -42,6 +42,7 @@ dependencies:
   line_icons:
   flutter_speed_dial: 
   fluttertoast:
+  cloud_firestore: 
 
 dev_dependencies:
   flutter_test:

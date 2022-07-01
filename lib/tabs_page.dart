@@ -21,7 +21,7 @@ class MyHome extends StatefulWidget {
 class _MyHomeState extends State<MyHome> {
   int _paginaActual = 0;
 
-  List<Widget> _paginas = [HomePage(), MyPets(), RegisterPage(), ProfilePage()];
+   List<Widget> _paginas = [HomePage(), MyPets(), RegisterPage(), ProfilePage()];
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
