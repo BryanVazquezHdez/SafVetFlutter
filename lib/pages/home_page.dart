@@ -1,10 +1,15 @@
 // ignore_for_file: prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:safevet/pages/appointments.dart';
+import 'dart:io';
+
+import 'package:url_launcher/url_launcher_string.dart';
 
 class CardItem2 {
   final String title;
@@ -30,6 +35,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final user = FirebaseAuth.instance.currentUser!;
   final isDialOpen = ValueNotifier(false);
   List<CardItem2> items = [
     CardItem2(
@@ -56,6 +62,7 @@ class _HomePageState extends State<HomePage> {
           'https://www.weare-family.com/petfanmx/wp-content/uploads/sites/10/2020/11/medico-veterinario-revision.jpg',
     )
   ];
+
   @override
   Widget build(BuildContext context) {
     Widget buildCard({
@@ -96,9 +103,10 @@ class _HomePageState extends State<HomePage> {
                 Text(
                   'Fecha de cita: ' + item.date,
                   style: GoogleFonts.poppins(color: Colors.white),
-                )
+                ),
               ],
             ));
+
     return WillPopScope(
       onWillPop: () async {
         if (isDialOpen.value) {
@@ -127,7 +135,7 @@ class _HomePageState extends State<HomePage> {
             SpeedDialChild(
                 child: Icon(Icons.shower),
                 label: "Agendar cita estética",
-                backgroundColor: Colors.white,
+                backgroundColor: Color.fromARGB(255, 218, 204, 14),
                 onTap: () => showToast('Selected stetic appoint')),
           ],
         ),
@@ -187,7 +195,39 @@ class _HomePageState extends State<HomePage> {
                       buildCard(item: items[index]),
                 ),
               ),
-
+              SizedBox(
+                height: 10,
+              ),
+              Divider(
+                color: Colors.white,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Row(
+                children: [
+                  Text("Recomendaciones ✍🏻",
+                      style: GoogleFonts.poppins(
+                          color: Colors.white,
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold)),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              CupertinoButton(
+                  borderRadius: BorderRadius.circular(50),
+                  child: Text(
+                    "¡Has clic para más recomendaciones!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 16, color: Color.fromARGB(255, 32, 26, 48)),
+                  ),
+                  onPressed: () {
+                    launchUrlString('https://www.cuidandotumascota.com/');
+                  },
+                  color: Color.fromARGB(255, 13, 245, 227)),
               //CITAS
             ]),
           ),

@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sized_box_for_whitespace
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -97,105 +98,129 @@ class _ProfilePageState extends State<ProfilePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromARGB(255, 32, 26, 48),
-      body: Column(
-        children: [
-          Center(
-            child: SafeArea(
-                //profile picture
-                child: Padding(
-              padding: const EdgeInsets.only(top: 50),
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 10,
-                        color: Color.fromARGB(255, 255, 255, 255),
-                      )
-                    ]),
-                child: CircleAvatar(
-                  radius: 80,
-                  backgroundColor: Colors.red,
-                  backgroundImage: ExactAssetImage('assets/images/profile.png'),
+      body: Center(
+        child: ListView(
+          children: [
+            Center(
+              child: SafeArea(
+                  //profile picture
+                  child: Padding(
+                padding: const EdgeInsets.only(top: 50),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 10,
+                          color: Color.fromARGB(255, 255, 255, 255),
+                        )
+                      ]),
+                  child: CircleAvatar(
+                    radius: 80,
+                    backgroundColor: Colors.red,
+                    backgroundImage:
+                        ExactAssetImage('assets/images/profile.png'),
+                  ),
                 ),
-              ),
-            )),
-          ),
-
-          //Profile Title
-          Text("Bryan Vazquez",
-              style: GoogleFonts.poppins(
-                  fontSize: 25,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold)),
-          SizedBox(
-            height: 5,
-          ),
-          Text("Miembro desde hace 2 años",
-              style: GoogleFonts.poppins(
-                fontSize: 12,
-                color: Color.fromARGB(255, 164, 164, 164),
               )),
-          SizedBox(
-            height: 5,
-          ),
-
-          //botones
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CupertinoButton(
-                    borderRadius: BorderRadius.circular(50),
-                    child: Text(
-                      "Agendar cita médica",
-                      style: TextStyle(
-                          fontSize: 15, color: Color.fromARGB(255, 32, 26, 48)),
-                    ),
-                    onPressed: () {},
-                    color: Color.fromARGB(255, 13, 245, 227)),
-                SizedBox(
-                  height: 20,
-                ),
-                CupertinoButton(
-                    borderRadius: BorderRadius.circular(50),
-                    child: Text("Agendar cita estética",
-                        style: TextStyle(fontSize: 15)),
-                    onPressed: () {},
-                    color: Color.fromARGB(255, 40, 40, 40))
-              ],
             ),
-          ),
 
-          SizedBox(
-            height: 20,
-          ),
+            //Profile Title
+            Center(
+              child: Text("Bryan Vazquez",
+                  style: GoogleFonts.poppins(
+                      fontSize: 25,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold)),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Center(
+              child: Text("Miembro desde hace 2 años",
+                  style: GoogleFonts.poppins(
+                    fontSize: 12,
+                    color: Color.fromARGB(255, 164, 164, 164),
+                  )),
+            ),
+            SizedBox(
+              height: 5,
+            ),
 
-          Text("Mis mascotas",
-              style: GoogleFonts.poppins(
-                  fontSize: 25,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold)),
-
-          SizedBox(
-            height: 20,
-          ),
-
-          Container(
-            height: 256,
-            child: ListView.separated(
-              padding: EdgeInsets.all(16),
-              scrollDirection: Axis.horizontal,
-              itemCount: 5,
-              separatorBuilder: (context, _) => SizedBox(
-                width: 12,
+            //botones
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CupertinoButton(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Text(
+                        "Agendar cita médica",
+                        style: TextStyle(
+                            fontSize: 15,
+                            color: Color.fromARGB(255, 32, 26, 48)),
+                      ),
+                      onPressed: () {},
+                      color: Color.fromARGB(255, 13, 245, 227)),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  CupertinoButton(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Text("Agendar cita estética",
+                          style: TextStyle(fontSize: 15)),
+                      onPressed: () {},
+                      color: Color.fromARGB(255, 40, 40, 40)),
+                ],
               ),
-              itemBuilder: (context, index) => buildCard(item: items[index]),
             ),
-          ),
-        ],
+
+            SizedBox(
+              height: 20,
+            ),
+
+            Center(
+              child: Text("Mis mascotas",
+                  style: GoogleFonts.poppins(
+                      fontSize: 25,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold)),
+            ),
+
+            SizedBox(
+              height: 20,
+            ),
+
+            Container(
+              height: 256,
+              child: ListView.separated(
+                padding: EdgeInsets.all(16),
+                scrollDirection: Axis.horizontal,
+                itemCount: 5,
+                separatorBuilder: (context, _) => SizedBox(
+                  width: 12,
+                ),
+                itemBuilder: (context, index) => buildCard(item: items[index]),
+              ),
+            ),
+
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(25.0),
+              child: CupertinoButton(
+                  borderRadius: BorderRadius.circular(50),
+                  child: Text("Cerrar Sesión", style: TextStyle(fontSize: 15)),
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut();
+                  },
+                  color: Color.fromARGB(255, 40, 40, 40)),
+            )
+          ],
+        ),
       ),
     );
   }
