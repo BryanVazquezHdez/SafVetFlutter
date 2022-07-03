@@ -21,7 +21,7 @@ class MyHome extends StatefulWidget {
 class _MyHomeState extends State<MyHome> {
   int _paginaActual = 0;
 
-   List<Widget> _paginas = [HomePage(), MyPets(), RegisterPage(), ProfilePage()];
+  List<Widget> _paginas = [HomePage(), MyPets(), RegisterPage(), ProfilePage()];
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -36,6 +36,23 @@ class _MyHomeState extends State<MyHome> {
                 setState(() {
                   _paginaActual = index;
                 });
+                // PageRouteBuilder(
+                //     transitionDuration: Duration(seconds: 1),
+                //     transitionsBuilder: (BuildContext context,
+                //         Animation<double> animation,
+                //         Animation<double> secAnimation,
+                //         Widget child) {
+                //       return ScaleTransition(
+                //         scale: animation,
+                //         alignment: Alignment.center,
+                //         child: child,
+                //       );
+                //     },
+                //     pageBuilder: (BuildContext context,
+                //         Animation<double> animation,
+                //         Animation<double> secAnimation) {
+                //       return MyHome();
+                //     });
               },
               selectedIndex: _paginaActual,
               //
