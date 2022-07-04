@@ -2,7 +2,7 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:safevet/pages/check_page.dart';
+import 'package:safevet/login/check_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

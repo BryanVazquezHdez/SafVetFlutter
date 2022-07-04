@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:safevet/login/login_page.dart';
 import 'package:safevet/main.dart';
 import 'package:safevet/pages/home_page.dart';
-import 'package:safevet/pages/login_page.dart';
 import 'package:safevet/tabs_page.dart';
 
 class CheckPage extends StatelessWidget {

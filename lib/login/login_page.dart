@@ -3,8 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:safevet/pages/recover_page.dart';
-import 'package:safevet/pages/register_page.dart';
+import 'package:safevet/login/recover_page.dart';
+import 'package:safevet/login/register_page.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class LoginPage extends StatefulWidget {

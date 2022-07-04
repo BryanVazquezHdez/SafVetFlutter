@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:safevet/pages/home_page.dart';
-import 'package:safevet/pages/login_page.dart';
+
 import 'package:safevet/pages/mypets_page.dart';
 import 'package:safevet/pages/profile_page.dart';
 
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:safevet/pages/register_page.dart';
+import 'package:safevet/login/register_page.dart';
 
 class MyHome extends StatefulWidget {
   const MyHome({Key? key}) : super(key: key);

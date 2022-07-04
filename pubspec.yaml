@@ -42,7 +42,10 @@ dependencies:
   line_icons:
   flutter_speed_dial: 
   fluttertoast:
-  cloud_firestore: 
+  cloud_firestore: ^3.2.1 
+  file_picker:
+  firebase_core: ^1.19.1
+  firebase_storage:
 
 dev_dependencies:
   flutter_test:
